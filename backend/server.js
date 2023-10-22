@@ -6,11 +6,13 @@ const locationRoutes = require('./routes/locationRoutes.js');
 const userRoutes = require('../backend/routes/userRoutes.js')
 const {errorHandler} = require('../backend/middleware/errorMiddleware.js');
 const connectDB = require('../backend/config/db.js')
+const morgan = require('morgan')
 
 connectDB();
 
 const app = express();
 
+app.use(morgan('combined'))
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 

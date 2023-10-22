@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+    server:
+      container_name: backend
+      build: ./
+      command: npm start
+      working_dir: /usr/src/backend
+      environment:
+        ME_CONFIG_MONGODB_URL: mongodb+srv://brad1234:brad1234@grandcluster.rxiszis.mongodb.net/
+      links:
+        - mongo
+      ports:
+         - "5000:5000"
+      volumes:
+        - ./:/usr/src/backend
+      
+    mongo:
+      image: mongo
+      restart: always
+      environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: brad1234
+
+    mongo-express:
+      image: mongo-express
+      restart: always
+      ports:
+        - 8081:8081
+      environment:
+        ME_CONFIG_MONGODB_ADMINUSERNAME: root
+        ME_CONFIG_MONGODB_ADMINPASSWORD: brad1234
+        ME_CONFIG_MONGODB_URL: mongodb+srv://brad1234:brad1234@grandcluster.rxiszis.mongodb.net/

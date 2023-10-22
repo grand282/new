@@ -9,7 +9,7 @@ const getLocations = asyncHandler(async(req,res) =>{
 });
 
 const setLocations = asyncHandler(async(req,res) =>{
-  const { province, townOrCity, bedroomNumber } = req.body;
+  const { district,price, ward,description, bedrooms, bathrooms, image } = req.body;
   
     if(!req.body){
         res.status(400)
@@ -17,10 +17,13 @@ const setLocations = asyncHandler(async(req,res) =>{
     }
 
     const location = await Location.create({
-        province,
+        district,
         price,
-        townOrCity,
-        bedroomNumber,
+        ward,
+        description,
+        bedrooms,
+        bathrooms,
+        image,
         user: req.user.id,
     })
     const savedLocation = await location.save();
@@ -78,6 +81,7 @@ const deleteLocations = asyncHandler(async(req,res) =>{
 
   res.status(204).json({ id: req.params.id })
 });
+
 
 
 

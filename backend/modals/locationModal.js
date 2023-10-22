@@ -6,24 +6,25 @@ const locationSchema = mongoose.Schema({
         required: true,
         ref: 'User'
     },
-    province: {
-        type: String,
-        required: [true, 'please add a province value']
-    },
-    townOrCity: {
-        type: String,
-        required: [true, 'please add a town/city value']
-    },
-    constituency: {
+    district: {
         type: String,
     },
-    street: {
-        type: String
+    ward: {
+        type: String,
     },
-    bedroomNumber: {
+    description: {
+        type: String,
+    },
+    bathrooms: {
         type: Number,
-        required: [true, 'please add value']
     },
+    bedrooms: {
+        type: Number,
+    },
+    price: {
+        type: Number,
+    },
+    image: [String],
     
 },{
     timestamps: true,
