@@ -14,7 +14,6 @@ const userSchema = mongoose.Schema({
         type: String,
         required: [true, 'please add a password']
     },
-    email : { type: String, index:true, unique:true,sparse:true},
 },
 {
     timestamps: true
