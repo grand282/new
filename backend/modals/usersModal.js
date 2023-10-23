@@ -8,7 +8,8 @@ const userSchema = mongoose.Schema({
     phone: {
         type: Number,
         required: [true, 'please add phone number'],
-        unique: true
+        unique: true,
+        sparse:true
     },
     password: {
         type: String,
