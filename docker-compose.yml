@@ -7,7 +7,7 @@ services:
       command: npm start
       working_dir: /usr/src/backend
       environment:
-        ME_CONFIG_MONGODB_URL: mongodb+srv://brad1234:brad1234@grandcluster.rxiszis.mongodb.net/
+        ME_CONFIG_MONGODB_URL: 
       links:
         - mongo
       ports:
